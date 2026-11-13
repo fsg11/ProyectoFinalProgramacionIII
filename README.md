@@ -4,10 +4,6 @@ Proyecto final de **Programación III** (Universidad del Quindío, 2026-2), desa
 Simula una plataforma para coordinar la atención después de un terremoto: usuarios, zonas,
 necesidades, recursos, comunicación entre familiares, mascotas perdidas/encontradas y albergues.
 
-| Nombre completo | Código | Correo |
-|-----------------|--------|--------|
-|                 |        |        |
-
 ---
 
 ## 1. Cómo ejecutar
@@ -16,9 +12,8 @@ Requisitos: Elixir 1.14 o superior. El núcleo del sistema no usa dependencias e
 interfaz web opcional usa Phoenix (sección 1.5), por eso la primera vez hay que descargarlas.
 
 ```bash
-cd emergencias
 mix deps.get
-mix compile
+mix.bat phx.server
 ```
 
 ### 1.1 Consola local (un solo nodo)
