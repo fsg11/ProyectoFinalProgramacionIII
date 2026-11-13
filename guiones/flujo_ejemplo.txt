@@ -1,0 +1,34 @@
+# Flujo de ejemplo del enunciado. Ejecutar con:
+#   mix run -e 'Emergencias.guion("guiones/flujo_ejemplo.txt")'
+# (borre la carpeta datos/ antes si quiere empezar desde cero)
+
+connect laura 1234 coordinador centro "Laura Gómez"
+register_zone centro "Zona Centro" critico 500
+register_zone sector3 "Sector 3" alto 120 centro
+register_zone punto_s3 "Punto de atención sector 3" alto 40 sector3
+register_zone zona_norte "Zona Norte" medio 200
+list_zones
+
+register_need agua 30 critica punto_s3 "Punto de atención sector 3"
+register_need agua 25 alta centro "Familias del parque central"
+register_need medicamentos 10 media zona_norte "Botiquines" A01
+register_resource R001 agua 50 litros centro_acopio_1 agua centro
+assign_resource N001 agua 30
+assign_resource N002 agua 25
+pending_needs
+
+register_shelter A01 "Albergue Norte" zona_norte 150
+report_person 1094 "Andrés Pérez" zona_norte localizada 34
+register_entry A01 1094
+send_family_message 1094 "Estoy bien, estoy en el albergue norte"
+list_family_messages 1094
+
+report_pet lost perro "Luna" negra mediana zona_norte 3001234567 "collar rojo"
+report_pet found perro desconocido negro mediano zona_norte 3007654321 "tiene collar rojo"
+match_pets
+
+zone_status centro
+critical_resources
+summary
+simulate_conflict
+disconnect
